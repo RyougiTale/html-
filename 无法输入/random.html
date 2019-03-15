@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>fucking_input</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js 
+
+"></script>
+    <style>
+        body {
+            display: flex;
+            position: relative;
+            background: #ffffff;
+        }
+
+        #fucking-input-box {
+            padding: 20px;
+            margin: auto;
+            border: 1px solid #f3f3f3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fucking-input-box">
+        <input type="text" id="fucking_input">
+        <input type="button" value="go">
+    </div>
+    <script>
+        $(function () {
+            var log = console.log;
+            var DOM_NAME = '#fucking-input-box';
+
+
+            $(window).keydown(function (event) {
+                if (event.which == 13) {
+                    log('keydown');
+                    $(DOM_NAME + '>input')[0].focus();
+                    log($(DOM_NAME + '>input'))
+                }
+            })
+
+            $(window).mousemove(function (event) {
+                var fuckingInputBoxSize = {
+                    width: $(DOM_NAME).outerWidth(),
+                    height: $(DOM_NAME).outerHeight()
+                };
+                var windowSize = {
+                    height: $(window).height(),
+                    width: $(window).width()
+                };
+                var mouse = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+                $(DOM_NAME).css({
+                    position: 'fixed',
+                    top: mouse.y,
+                    left: mouse.x
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>
